@@ -4,6 +4,7 @@
   "description": "",
   "main": "bin/www.ts",
   "scripts": {
+    "start": "NODE_ENV=production node ./dist/bin/www.js",
     "build": "NODE_ENV=production tsc -p ./tsconfig.prod.json",
     "dev": "NODE_ENV=development tsc-watch -p ./tsconfig.json --onSuccess \"node ./dist/bin/www.js\"",
     "test": "NODE_ENV=test npm run test:e2e && npm run test:unit",
