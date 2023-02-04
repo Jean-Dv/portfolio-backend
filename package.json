@@ -4,6 +4,7 @@
   "description": "",
   "main": "bin/www.ts",
   "scripts": {
+    "build": "NODE_ENV=production tsc -p ./tsconfig.prod.json",
     "dev": "NODE_ENV=development tsc-watch -p ./tsconfig.json --onSuccess \"node ./dist/bin/www.js\"",
     "test": "NODE_ENV=test npm run test:e2e && npm run test:unit",
     "test:e2e": "NODE_ENV=test npx jest --verbose ./__test__/e2e/",
