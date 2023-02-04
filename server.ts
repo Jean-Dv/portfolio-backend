@@ -36,7 +36,9 @@ class Server {
     this.app.use(helmet.hidePoweredBy())
     this.app.use(helmet.frameguard({ action: 'deny' }))
     this.app.use(compress())
-    this.app.use(logger.express)
+    if (configEnv.NODE_ENV === 'production') {
+      this.app.use(logger.express)
+    }
   }
 
   private routes(): void {
@@ -52,4 +54,8 @@ class Server {
   }
 }
 
-export { Server }
+const server = new Server()
+const app = server.app
+const routerPrefix = server.routerPrefix
+
+export { Server, app, routerPrefix }

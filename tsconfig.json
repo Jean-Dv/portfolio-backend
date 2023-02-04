@@ -105,6 +105,13 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
-  "include": ["bin", "configs", "apps", "server.ts", "jest.config.ts"],
+  "include": [
+    "bin",
+    "configs",
+    "apps",
+    "__test__",
+    "server.ts",
+    "jest.config.ts"
+  ],
   "exclude": ["node_modules", "dist"]
 }
