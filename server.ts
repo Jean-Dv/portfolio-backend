@@ -1,6 +1,7 @@
 import helmet from 'helmet'
 import compress from 'compression'
 import express, { type Application } from 'express'
+import { homeRouter } from '@apps/home/router'
 import { configEnv, logger } from '@configs/index'
 
 class Server {
@@ -19,6 +20,7 @@ class Server {
     this.routerPrefix = '/api/v1'
     this.config()
     this.middlewares()
+    this.routes()
     Server._instance = this
   }
 
@@ -35,6 +37,10 @@ class Server {
     this.app.use(helmet.frameguard({ action: 'deny' }))
     this.app.use(compress())
     this.app.use(logger.express)
+  }
+
+  private routes(): void {
+    this.app.use(`${this.routerPrefix}`, homeRouter)
   }
 
   start(): void {
